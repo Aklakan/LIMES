@@ -160,6 +160,15 @@ public class Preprocessor {
         }
         return result;
     }
+    
+    public static String toWkt(double lang, double lat) {
+    	
+    	String reslut="POINT"+"("+ String.valueOf(lang)+ " "+ String.valueOf(lat)+")";
+    	
+		return reslut;
+    	
+    	
+    }
 
     /**
      * Returns the last part of an URI as a String. Additional parsing _ as space.
