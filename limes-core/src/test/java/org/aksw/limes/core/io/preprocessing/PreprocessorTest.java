@@ -36,5 +36,16 @@ public class PreprocessorTest {
         assertTrue(process.equals(anObject));
     }
 
+    
+    @Test
+    public void testToWktPoint() {
+    	
+    	double lat=-26.8897016;
+    	double lon=-49.1114599;
+    	String point="POINT(-49.1114599 -26.8897016)";
+    	String result=Preprocessor.toWktPoint(lon, lat);
+
+        assertTrue(result.equals(point));
+    }
 
 }

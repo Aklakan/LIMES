@@ -161,10 +161,10 @@ public class Preprocessor {
         return result;
     }
     
-    public static String toWkt(double lang, double lat) {
-    	
+    public static String toWktPoint(double lang, double lat) {
+    	//if(!(lang==(Double) null)&&!(lat==(Double) null)) {
     	String reslut="POINT"+"("+ String.valueOf(lang)+ " "+ String.valueOf(lat)+")";
-    	
+    	//}
 		return reslut;
     	
     	
