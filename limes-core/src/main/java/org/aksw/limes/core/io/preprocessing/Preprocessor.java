@@ -28,6 +28,9 @@ public class Preprocessor {
     public static final String AT               = "@";
     public static final String NO_LANG          = "nolang";
     public static final String NUMBER 		    = "number";
+    public static final String TOWKTPOINT 		    = "toWktPoint";
+	public static double lon ;
+	public static double lat ;
     static Logger logger = LoggerFactory.getLogger(Preprocessor.class.getName());
 
     public static String process(String entry, String functionChain) {
@@ -141,6 +144,15 @@ public class Preprocessor {
             return URIasString(entry);
         }
         //function not known...
+        
+        if(function.startsWith(TOWKTPOINT)) {
+        	entry="";
+        	
+        	lat=-26.8897016;
+            lon=-49.1114599;
+			String result=toWktPoint(lon, lat);
+        	return result;
+        }
         else {
             logger.warn("Unknown preprocessing function " + function);
             return entry;
@@ -161,11 +173,11 @@ public class Preprocessor {
         return result;
     }
     
-    public static String toWktPoint(double lang, double lat) {
-    	//if(!(lang==(Double) null)&&!(lat==(Double) null)) {
-    	String reslut="POINT"+"("+ String.valueOf(lang)+ " "+ String.valueOf(lat)+")";
-    	//}
-		return reslut;
+    public static String toWktPoint(double lon, double lat) {
+    	
+    	    	String result="POINT"+"("+ String.valueOf(lon)+ " "+ String.valueOf(lat)+")";
+    	
+		return result;
     	
     	
     }
