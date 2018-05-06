@@ -20,6 +20,7 @@
 	<modules>
 		<module>limes-gui</module>
 		<module>limes-core</module>
+		<module>limes-integration-jena-sparql</module>
 		<module>limes-debian-cli</module>
 	</modules>
 

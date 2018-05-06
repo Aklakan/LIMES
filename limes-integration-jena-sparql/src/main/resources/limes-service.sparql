@@ -1,0 +1,19 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX geom: <http://geovocab.org/geometry#>
+PREFIX geos: <http://www.opengis.net/ont/geosparql#>
+PREFIX lgdo: <http://linkedgeodata.org/ontology/>
+PREFIX plugin: <plugin://>
+
+SELECT * {
+  SERVICE <plugin://limes> {
+  	SERVICE <http://linkedgeodata.org/sparql> {
+  	  ?x a lgdo:RelayBox ; geom:geometry/geos:asWKT ?xl .
+  	}
+
+  	SERVICE <http://linkedgeodata.org/sparql> {
+  	  ?y a lgdo:RelayBox ; geom:geometry/geos:asWKT ?yl .
+  	} 
+  	
+  	FILTER(plugin:geo_hausdorff(?xl, ?yl) < 0.0001)
+  }
+}
