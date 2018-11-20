@@ -6,6 +6,8 @@ PREFIX plugin: <plugin://>
 
 SELECT * {
   SERVICE <plugin://limes> {
+        # Note the convention, the result set of interlinking uses the first variabe
+        # in subject position of each SERVICE clause, i.e. ?x and ?y in this case
   	SERVICE <http://linkedgeodata.org/sparql> {
   	  ?x a lgdo:RelayBox ; geom:geometry/geos:asWKT ?xl .
   	}
